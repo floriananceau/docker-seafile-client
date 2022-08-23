@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -32,19 +32,18 @@ LABEL maintainer="flow.gunso@gmail.com" \
     org.label-schema.schema-version="1.0"
 
 # Copy over the assets.
-COPY docker-entrypoint.sh /entrypoint.sh
-COPY docker-healthcheck.sh /healthcheck.sh
+COPY seafile-client/docker-entrypoint.sh /entrypoint.sh
+COPY seafile-client/docker-healthcheck.sh /healthcheck.sh
 COPY tests /tests
 
 # Install seaf-cli and oathtool, prepare the user.
 ENV DEBIAN_FRONTEND=noninteractive
 ENV UNAME=seafuser UID=1000 GID=1000
-COPY import-seafile-apt-key.sh /
-RUN apt-get update && apt-get install -y gnupg && \
+RUN apt-get update && apt-get install -y gnupg wget && \
     mkdir -p /etc/apt/sources.list.d/ && \
-    echo "deb http://deb.seadrive.org buster main" > /etc/apt/sources.list.d/seafile.list && \
-    bash /import-seafile-apt-key.sh && \
-    apt-get purge --yes gnupg && apt-get autoremove --yes && \
+    wget https://linux-clients.seafile.com/seafile.asc -O /usr/share/keyrings/seafile-keyring.asc && \
+    bash -c "echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/seafile-keyring.asc] https://linux-clients.seafile.com/seafile-deb/bullseye/ stable main' > /etc/apt/sources.list.d/seafile.list" && \
+    apt-get purge --yes gnupg wget && apt-get autoremove --yes && \
     apt-get update && apt-get install \
         --no-install-recommends \
         --yes \
@@ -56,15 +55,14 @@ RUN apt-get update && apt-get install -y gnupg && \
         /var/log/apt/*.log \
         /var/cache/debconf/*.dat-old \
         /var/lib/apt/lists/* \
-        /import-seafile-apt-key.sh && \
     mkdir /library/ && \
     groupadd -g $GID -o $UNAME && \
     useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME && \
     mkdir /home/$UNAME/.seafile && \
     chown $UNAME:$GID /home/$UNAME/.seafile
 
-COPY seafile-entrypoint.sh /home/seafuser/entrypoint.sh
-COPY seafile-healthcheck.py /home/seafuser/healthcheck.py
+COPY seafile-client/seafile-entrypoint.sh /home/seafuser/entrypoint.sh
+COPY seafile-client/seafile-healthcheck.py /home/seafuser/healthcheck.py
 RUN chmod +x /home/$UNAME/healthcheck.py && \
     chown $UNAME:$GID /home/$UNAME/
 
