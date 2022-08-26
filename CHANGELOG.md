@@ -1,8 +1,8 @@
 - Close #16: add a templater for Docker Hub and Seafile's forum topic description
 
 ## __[2.2.0](https://gitlab.com/flwgns-docker/seafile-client/-/tags/2.2.0)__ | _2022/08/26_
-- Update from Debian Buster to Debian Bullseye
-- Improved Seafile apt source installation
+- Update from Debian Buster to Debian Bullseye (!7)
+- Improved Seafile apt source installation (!7)
 
 ### __[2.1.1](https://gitlab.com/flwgns-docker/seafile-client/-/tags/2.1.1)__ | _2020/03/10_
 - Close #14: prevent re-initialization and re-synchronization of the container if it's life cycle change but is not deleted
