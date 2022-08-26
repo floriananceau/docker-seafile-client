@@ -1,4 +1,4 @@
-[![](https://img.shields.io/gitlab/pipeline/flwgns-docker/seafile-client/2.1.1?label=Build)](https://gitlab.com/flwgns-docker/seafile-client/commits/2.1.1)
+[![](https://img.shields.io/gitlab/pipeline/flwgns-docker/seafile-client/2.2.0?label=Build)](https://gitlab.com/flwgns-docker/seafile-client/commits/2.2.0)
 [![](https://img.shields.io/docker/image-size/flowgunso/seafile-client/latest?label=Docker%20image%20size&color=%230778b8)](https://hub.docker.com/r/flowgunso/seafile-client)
 [![](https://img.shields.io/docker/pulls/flowgunso/seafile-client?label=Docker%20pulls&color=%230778b8)](https://hub.docker.com/r/flowgunso/seafile-client)
 [![](https://img.shields.io/badge/License-GPLv3-red.svg)](https://www.gnu.org/licenses/gpl-3.0)
@@ -7,7 +7,7 @@
 **Share a Seafile library as a volume to other containers.**
 
 # Supported tags
-[`2`, `2.1`, `2.1.1`, `latest`](seafile-client/Dockerfile)
+[`2`, `2.2`, `2.2.0`, `latest`](seafile-client/Dockerfile)
 
 # Informations
 * Synchronize a single Seafile library, available at the path `/library/'.
