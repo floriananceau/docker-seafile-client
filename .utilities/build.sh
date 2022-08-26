@@ -16,8 +16,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-cp -R tests seafile-client/
-cd seafile-client/
 
 docker build \
     --build-arg BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
@@ -26,4 +24,4 @@ docker build \
     --build-arg PROJECT_URL=$CI_PROJECT_URL \
     --tag $CI_PROJECT_NAME:build .
 
-docker save --output ../$CI_PROJECT_NAME.tar $CI_PROJECT_NAME:build
+docker save --output $CI_PROJECT_NAME.tar $CI_PROJECT_NAME:build
