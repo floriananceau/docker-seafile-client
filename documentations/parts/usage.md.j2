@@ -1,0 +1,80 @@
+# Usage
+
+## Start a Seafile client
+
+### Docker command-line
+The following command start the Seafile client with one library:
+```bash
+{% include "assets/cli.bash" %}
+```
+
+### Docker Compose
+The following Docker Compose start a Seafile client with two libraries, with one password protected:
+```yaml
+{% include "assets/compose.yaml" %}
+```
+
+## Librairies
+Environment variables allows librairies configuration, as shown in the examples above.
+
+You can configure either a single librairy or multiple librairies.
+
+### Single library
+To synchronize a single library, use the environment variables `SEAF_LIBRARY` and `SEAF_LIBRARY_PASSWORD`. The library will be synchronized in _/library_.
+
+### Multiple librairies
+To synchronise multiple librairies, use the same environment variable as above but suffixed with a single identifier word. That word will be used for the library password and it's synchronization path as well.
+
+Hence, to synchronise a library identified as **audio**, the environment variables would be `SEAF_LIBRARY_AUDIO` for the library UUID and `SEAF_LIBRARY_AUDIO_PASSWORD` for the library password. The library will be then synchronized in _/library/audio_.
+
+Identifiers allows to add as many libraries as possible. Identifier are single word only.
+
+## Environment variables
+Environment variable allows you to configure the Seafile client.
+
+### `SEAF_SERVER_URL`
+> This variable is mandatory.
+
+The Seafile server URL.
+
+### `SEAF_USERNAME`
+> This variable is mandatory.
+
+The username for the Seafile account.
+
+### `SEAF_PASSWORD`
+> This variable is mandatory.
+
+The password for the Seafile account.
+
+### `SEAF_LIBRARY`, `SEAF_LIBRARY_[IDENTIFIER]`
+> This variable is mandatory.
+
+The UUID of the library, libraries to synchronize.
+Replace `[IDENTIFIER]` with the a unique single word identifier for each library you want to synchronize.
+
+### `SEAF_LIBRARY_PASSWORD`, `SEAF_LIBRARY_[IDENTIFIER]_PASSWORD`
+The password of the library, libraries to synchronize.
+Replace `[IDENTIFIER]` with the a unique single word identifier for each library you want to synchronize corresponding to the `SEAF_LIBRARY_[IDENTIFIER]`.
+
+### `SEAF_2FA_SECRET`
+_Two factor authentication is supported but your secret key must be provided._ That key can be found on your Seafile web interface, only at the 2FA setup, when the QR code is shown. The secret key is embedded in the QR or available as a cookie.
+
+### `SEAF_UPLOAD_LIMIT`, `SEAF_DOWNLOAD_LIMIT`
+Set upload and download speeds limits. Limits are in bytes.
+
+### `SEAF_SKIP_SSL_CERT`  
+Skip SSL certificates verifications.
+
+> Any string is considered true, omit the variable to set to false. Enable this if you have synchronization failures regarding SSL certificates.
+
+### `UID`, `GID`  
+Override the _UID_ and _GID_ for user running the Seafile client, hence the volume ownership.
+
+## Docker Secrets
+All environments variable supports Docker Secrets, as environment variable variant suffixed with `_FILE` as files.
+
+## Full example
+```bash
+{% include "assets/compose-full.yaml" %}
+```

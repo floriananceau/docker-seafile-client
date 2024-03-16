@@ -11,17 +11,18 @@ Example usage with docker-compose and for the docker cli are provided. Essential
 Feedback is welcome so I can keep improving it.
 
 # Quick informations
-**[flowgunso/seafile-client](https://hub.docker.com/r/flowgunso/seafile-client)** on Docker Hub, latest stable version: **2.1.1**
+**[flowgunso/seafile-client](https://hub.docker.com/r/flowgunso/seafile-client)** on Docker Hub, latest stable version: **{{version}}**
 Contribute and report issues on [Gitlab](https://gitlab.com/flwgns-docker/seafile-client/).
 
-## Features
-* Synchronize a single Seafile library, available at the path `/library/'.
-* Password protected librairies are supported.
-* Two factor authentication is supported.
-* Upload and download speeds are configurable.
-* SSL certificates are skippable.
+{% include "parts/supported_tags.md.j2" %}
 
-# Change log
+{% include "parts/features.md.j2" %}
+
+{% include "parts/usage.md.j2" %}
+
+{% include "parts/troubleshooting.md.j2" %}
+
+# Changelog
 [details]
-{{ changelog }}
+{{changelog}}
 [/details]

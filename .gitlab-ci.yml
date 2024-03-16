@@ -3,67 +3,101 @@ image: docker:latest
 services:
   - docker:dind
 
+.parallel:
+  parallel:
+    matrix:
+      - TARGET: [oldstable, stable, unstable]
+
 stages:
-  - report
   - build
   - test
-  - publish
+  - release
 
 before_script:
-  - apk add bash git
+  - apk add bash git curl jq make
 
 build:
   stage: build
   script:
-    - /bin/bash .utilities/check.sh
-    - /bin/bash -e .utilities/build.sh
+    - make build
+    - make save
+  extends: .parallel
   only:
+    - merge_requests
     - tags
   artifacts:
     paths:
-      - "$CI_PROJECT_NAME.tar"
-
-build:description_template:
-  image: python:3.8-alpine
-  stage: build
-  script: sh -e .utilities/templates/templater.sh
-  only:
-    - tags
-  artifacts:
-    paths:
-      - "*.description"
+      - "tarballs/"
 
 test:
   stage: test
-  script: /bin/bash -e .utilities/test.sh
+  script:
+    - make load
+    - make build-test
+    - make test
+  extends: .parallel
+  needs:
+    - job: build
+      parallel:
+        matrix:
+          - TARGET: oldstable
+          - TARGET: stable
+          - TARGET: unstable
+  only:
+    - merge_requests
+    - tags
+  artifacts:
+    paths:
+      - tarballs/
+
+publish-images:
+  stage: release
+  script:
+    - make load
+    - make publish-images
+  needs:
+    - job: build
+      parallel:
+        matrix:
+          - TARGET: oldstable
+          - TARGET: stable
+          - TARGET: unstable
+    - job: test
+  extends: .parallel
   only:
     - tags
   artifacts:
     paths:
-      - "$CI_PROJECT_NAME.tar"
+      - tarballs/
+      - versions/*
 
-publish:
-  stage: publish
-  script: /bin/bash -e .utilities/publish.sh
+make-documents:
+  stage: release
+  script:
+    - apk add py3-jinja2
+    - make documents
+  needs:
+    - job: publish-images
+      parallel:
+        matrix:
+          - TARGET: oldstable
+          - TARGET: stable
+          - TARGET: unstable
   only:
     - tags
   artifacts:
     paths:
-      - "$CI_PROJECT_NAME.tar"
+      - versions/*
+      - documentations/*.md
 
-#update_docker_hub_full_description:
-#  stage: publish
-#  script: /bin/bash -e .utilities/update-docker-hub-full-description.sh
-#  only:
-#    - master
-
-bot:package_update_notification:
-  stage: report
-  script: bash -e .utilities/package_update_notifier.sh
+publish-documents:
+  stage: release
+  script:
+    - make publish-documents
+  needs:
+    - job: make-documents
   only:
-    - schedules
-    # see https://docs.gitlab.com/ce/ci/yaml/README.html#onlyexcept-advanced for feature updates
-    # refs:
-    #   - schedules
-    # variables:
-    #   - $SCHEDULE_ID == $PACKAGE_UPDATE_NOTIFICATION_SCHEDULE_ID
+    - tags
+  artifacts:
+    paths:
+      - documentations/*.md

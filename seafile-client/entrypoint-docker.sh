@@ -16,19 +16,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Check the CI pipeline sources.
-if ! [[ "$CI_PIPELINE_SOURCE" == "push" ]]; then
-    echo "CI pipelines are only allowed from push."
-    exit 1
-fi
+#!/bin/bash
 
-# Check the tag is properly defined on job other than update_docker_hub_full_description job,
-# on pushed CI pipelines.
-if [[ "$CI_PIPELINE_SOURCE" == "push" ]]; then
-    if ! [[ "$CI_JOB_NAME" == "update_docker_hub_full_description" ]]; then 
-        if [[ -z "$CI_COMMIT_TAG" && "$CI_COMMIT_TAG" =~ ^[0-9]+[.][0-9]+[.][0-9]+$ ]]; then
-            echo "The \$CI_COMMIT_TAG $CI_COMMIT_TAG does not match the MAJOR.Minor.revision layout."
-            exit 1
-        fi
-    fi
-fi
+set -e
+
+groupmod -g $GID seafile &> /dev/null
+usermod -u $UID -g $GID seafile &> /dev/null
+
+sudo \
+    -HE \
+    -u seafile \
+    -- "$@"
