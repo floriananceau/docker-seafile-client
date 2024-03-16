@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+
+  seafile-client:
+    image: flowgunso/seafile-client:latest
+    volumes:
+      - audio:/library/audio
+      - documents:/library/documents
+      - client:/seafile
+    environment:
+      SEAF_SERVER_URL: "https://seafile.example/"
+      SEAF_USERNAME: "a_seafile_user"
+      SEAF_PASSWORD: "SoMePaSSWoRD"
+      SEAF_LIBRARY_AUDIO: "audio-library-uuid"
+      SEAF_LIBRARY_AUDIO_PASSWORD: "auDioLiBRaRyPaSSWoRD"
+      SEAF_LIBRARY_DOCUMENTS: "documents-library-uuid"
+
+volumes:
+  audio:
+  documents:
+  client:

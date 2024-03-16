@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+
+  seafile-client:
+    image: flowgunso/seafile-client:latest
+    volumes:
+      - audio:/library/audio
+      - documents:/library/documents
+      - client:/seafile
+    environment:
+      SEAF_SERVER_URL: "https://seafile.example/"
+      SEAF_USERNAME: "a_seafile_user"
+      SEAF_PASSWORD: "SoMePaSSWoRD"
+      SEAF_LIBRARY_AUDIO: "audio-library-uuid"
+      SEAF_LIBRARY_AUDIO_PASSWORD: "auDioLiBRaRyPaSSWoRD"
+      SEAF_LIBRARY_DOCUMENTS: "documents-library-uuid"
+      SEAF_2FA_SECRET: "JBSWY3DPEHPK3PXPIXDAUMXEDOXIUCDXWC32CS"
+      SEAF_UPLOAD_LIMIT: "1000000"
+      SEAF_DOWNLOAD_LIMIT: "1000000"
+      SEAF_SKIP_SSL_CERT: "true"
+      UID: "1000"
+      GID: "1000"
+
+volumes:
+  audio:
+  documents:
+  client:

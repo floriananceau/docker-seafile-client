@@ -16,9 +16,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Grab the status of the active repos then return as healthy/unhealthy
-# depending the healthy statuses.
+# Prepare the build arguments
+build_args=(CREATED=$(date -u +"%Y-%m-%dT%H:%M:%SZ"))
+[[ "$CI_COMMIT_SHA" ]] && build_args+=(REVISION=$CI_COMMIT_SHA)
+[[ "$CI_COMMIT_TAG" ]] && build_args+=(VERSION=$CI_COMMIT_TAG)
+[[ "$TARGET" ]] && build_args+=(TARGET=$TARGET)
 
-su - $UNAME << EO
-    ~/healthcheck.py -c ~/.seafile/seafile-data/ $SEAF_LIBRARY_UUID
-EO
+# Build the build argumets string.
+build_arguments=""
+for build_arg in "${build_args[@]}"; do
+    build_arguments+="--build-arg $build_arg "
+done
+
+docker build \
+    $build_arguments \
+    --tag seafile-client:$TARGET \
+    seafile-client/

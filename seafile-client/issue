@@ -1,0 +1,4 @@
+┌───────────────────────┐
+│ Seafile Docker client │
+└───────────────────────┘
+ Run `./entrypoint.sh bash` to login as the seafile user.

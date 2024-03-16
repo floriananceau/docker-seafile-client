@@ -1,5 +1,5 @@
-.idea/
 *.pyc
-docker-compose.test.yml
-venv/
-*.description
+.env/
+tarballs/
+VERSIONS.txt
+documentations/*.md
