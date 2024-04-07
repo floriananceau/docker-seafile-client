@@ -3,18 +3,23 @@
 [![][badge-pulls]][url-docker]
 [![][badge-release]][url-sources]
 ![][badge-license]
+[![][badge-sponsoring]][url-sponsoring]
 
 [url-pipelines]: https://gitlab.com/flwgns-docker/seafile-client/-/pipelines
 [url-docker]: https://hub.docker.com/r/flowgunso/seafile-client
 [url-sources]: https://gitlab.com/flwgns-docker/seafile-client/
+[url-sponsoring]: https://liberapay.com/docker-seafile-client/donate
 
 [badge-pipeline]: https://img.shields.io/gitlab/pipeline-status/flwgns-docker%2Fseafile-client
 [badge-image-size]: https://img.shields.io/docker/image-size/flowgunso/seafile-client/latest?logo=docker&label=Image%20size&color=%230778b8
 [badge-pulls]: https://img.shields.io/docker/pulls/flowgunso/seafile-client?logo=docker&label=Pulls&color=%230778b8
 [badge-license]: https://img.shields.io/gitlab/license/11322291?label=License&color=fca326
 [badge-release]: https://img.shields.io/gitlab/v/release/11322291?logo=gitlab&label=Source%20code&color=fca326
+[badge-sponsoring]: https://img.shields.io/liberapay/receives/docker-seafile-client.svg?logo=liberapay
 
 **Share a Seafile library as a volume to other containers.**
+
+> ⚠️ Please consider sponsoring this project to help me maintaining and improving it. As of right now, you can support me through Liberay, available in the project badges
 
 # Features
 * Synchronize one or more Seafile libraries.
