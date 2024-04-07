@@ -2,7 +2,7 @@
 [![][badge-image-size]][url-docker]
 [![][badge-pulls]][url-docker]
 [![][badge-release]][url-sources]
-![][badge-license]
+[![][badge-license]][url-sources]
 [![][badge-sponsoring]][url-sponsoring]
 
 [url-pipelines]: https://gitlab.com/flwgns-docker/seafile-client/-/pipelines
