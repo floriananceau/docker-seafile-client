@@ -14,8 +14,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 ### Fixed
 ### Security
+
 [tag]: url_to_tag
 -->
+
+## [3.0.1]
+### Added
+* New script to schedule the best possible time to run the build. It relies on WattTime Load Shift feature (#56)
+* Weekly build through pipeline schedules. (#56)
+### Changed
+* Every links pointing to the previous repository flwgns-docker/seafile-client are pointing now to florian.anceau/docker-seafile-client. (#56)
+
+[3.0.1]:  https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/3.0.1
+<!-- /3.0.1 -->
 
 ## [3.0.0] - 2024/03/16
 ### Added
@@ -31,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed the Docker Hub description publish through their API (#10)
 - Add ca-certificates and gnupg to support more HTTP certificates (#24)
 
-[3.0.0]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/3.0.0
+[3.0.0]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/3.0.0
 <!-- /3.0.0 -->
 
 ## [2.2.0] - 2022/08/26
@@ -101,23 +112,23 @@ The container entrypoint is run with root, then another entrypoint is run by the
 ## [0.9.2] - 2019/03/15
 - Test release on GitLab, before Docker Hub
 
-[2.2.0]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/2.2.0
-[2.1.1]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/2.1.1
-[2.1.0]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/2.1.0
-[2.0.3]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/2.0.2
-[2.0.2]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/2.0.2
-[2.0.1]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/2.0.1
-[2.0.0]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/2.0.0
-[1.2.1]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.2.1
-[1.2.0]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.2.0
-[1.1.2]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.1.2
-[1.1.1]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.1.1
-[1.1.0]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.1.0
-[1.0.6]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.0.6
-[1.0.5]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.0.5
-[1.0.4]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.0.4
-[1.0.3]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.0.3
-[1.0.2]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.0.2
-[1.0.1]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.0.1
-[1.0.0]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/1.0.0
-[0.9.2]: https://gitlab.com/flwgns-docker/seafile-client/-/tags/0.9.2
+[2.2.0]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/2.2.0
+[2.1.1]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/2.1.1
+[2.1.0]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/2.1.0
+[2.0.3]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/2.0.2
+[2.0.2]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/2.0.2
+[2.0.1]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/2.0.1
+[2.0.0]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/2.0.0
+[1.2.1]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.2.1
+[1.2.0]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.2.0
+[1.1.2]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.1.2
+[1.1.1]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.1.1
+[1.1.0]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.1.0
+[1.0.6]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.0.6
+[1.0.5]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.0.5
+[1.0.4]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.0.4
+[1.0.3]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.0.3
+[1.0.2]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.0.2
+[1.0.1]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.0.1
+[1.0.0]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/1.0.0
+[0.9.2]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/0.9.2

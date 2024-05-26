@@ -5,9 +5,9 @@
 [![][badge-license]][url-sources]
 [![][badge-sponsoring]][url-sponsoring]
 
-[url-pipelines]: https://gitlab.com/flwgns-docker/seafile-client/-/pipelines
+[url-pipelines]: https://gitlab.com/florian.anceau/docker-seafile-client/-/pipelines
 [url-docker]: https://hub.docker.com/r/flowgunso/seafile-client
-[url-sources]: https://gitlab.com/flwgns-docker/seafile-client/
+[url-sources]: https://gitlab.com/florian.anceau/docker-seafile-client/
 [url-sponsoring]: https://liberapay.com/docker-seafile-client/donate
 
 [badge-pipeline]: https://img.shields.io/gitlab/pipeline-status/flwgns-docker%2Fseafile-client
@@ -167,4 +167,4 @@ volumes:
 
 # Troubleshooting
 * Ask questions on [Seafile forum](https://forum.seafile.com/t/docker-client-to-sync-files-with-containers/8573).
-* Contribute and report issues on [Gitlab](https://gitlab.com/flwgns-docker/seafile-client/).
+* Contribute and report issues on [Gitlab](https://gitlab.com/florian.anceau/docker-seafile-client/).

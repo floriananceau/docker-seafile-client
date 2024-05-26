@@ -47,3 +47,9 @@ save:
 
 load:
 	docker load --input tarballs/${TARGET}.tar
+
+schedule-weekly-build:
+	python scripts/schedule-build.py
+
+unschedule-weekly-build:
+	python scripts/schedule-build.py --disable
