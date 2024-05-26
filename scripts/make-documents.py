@@ -44,6 +44,7 @@ for line in buffer:
     versions.append(blocks)
 
 # Render
+# TODO: read and adapt the CHANGELOG and insert into the render.
 content = template.render(versions=versions)
 #content = template.render()  # When version/ is unavailable.
 filename = Path(args.template).with_suffix("")
