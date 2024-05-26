@@ -9,28 +9,35 @@ services:
       - TARGET: [oldstable, stable, unstable]
 
 stages:
+  - schedule
   - build
   - test
   - release
 
-before_script:
-  - apk add bash git curl jq make
+include:
+  - template: Jobs/Code-Quality.gitlab-ci.yml
+  - template: Jobs/SAST.latest.gitlab-ci.yml
 
 build:
   stage: build
+  before_script:
+    - apk add bash git curl jq make
   script:
     - make build
     - make save
   extends: .parallel
-  only:
-    - merge_requests
-    - tags
+  rules:
+    - if: $CI_COMMIT_TAG
+    - if: $CI_MERGE_REQUEST_ID
+    - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULED_PIPELINE == "weekly-build"
   artifacts:
     paths:
       - "tarballs/"
 
 test:
   stage: test
+  before_script:
+    - apk add bash git curl jq make
   script:
     - make load
     - make build-test
@@ -43,15 +50,18 @@ test:
           - TARGET: oldstable
           - TARGET: stable
           - TARGET: unstable
-  only:
-    - merge_requests
-    - tags
+  rules:
+    - if: $CI_COMMIT_TAG
+    - if: $CI_MERGE_REQUEST_ID
+    - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULED_PIPELINE == "weekly-build"
   artifacts:
     paths:
       - tarballs/
 
 publish-images:
   stage: release
+  before_script:
+    - apk add bash git curl jq make
   script:
     - make load
     - make publish-images
@@ -64,8 +74,9 @@ publish-images:
           - TARGET: unstable
     - job: test
   extends: .parallel
-  only:
-    - tags
+  rules:
+    - if: $CI_COMMIT_TAG
+    - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULED_PIPELINE == "weekly-build"
   artifacts:
     paths:
       - tarballs/
@@ -73,8 +84,9 @@ publish-images:
 
 make-documents:
   stage: release
+  before_script:
+    - apk add bash git curl jq make py3-jinja2
   script:
-    - apk add py3-jinja2
     - make documents
   needs:
     - job: publish-images
@@ -83,8 +95,9 @@ make-documents:
           - TARGET: oldstable
           - TARGET: stable
           - TARGET: unstable
-  only:
-    - tags
+  rules:
+    - if: $CI_COMMIT_TAG
+    - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULED_PIPELINE == "weekly-build"
   artifacts:
     paths:
       - versions/*
@@ -92,12 +105,43 @@ make-documents:
 
 publish-documents:
   stage: release
+  before_script:
+    - apk add bash git curl jq make
   script:
     - make publish-documents
   needs:
     - job: make-documents
-  only:
-    - tags
+  rules:
+    - if: $CI_COMMIT_TAG
+    - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULED_PIPELINE == "weekly-build"
   artifacts:
     paths:
       - documentations/*.md
+
+weekly-build-disable:
+  stage: release
+  needs:
+    - job: publish-documents
+  before_script:
+    - apk add bash git curl jq make py3-requests py3-gitlab
+  script:
+    - make unschedule-weekly-build
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULED_PIPELINE == "weekly-build"
+
+
+weekly-build-scheduler:
+  stage: schedule
+  before_script:
+    - apk add bash git curl jq make py3-requests py3-gitlab
+  script:
+    - make schedule-weekly-build
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULED_PIPELINE == "weekly-build-scheduler"
+  artifacts:
+    reports:
+      metrics: metrics.txt
+
+code_quality:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
