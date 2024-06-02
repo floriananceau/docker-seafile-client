@@ -133,14 +133,17 @@ class Client:
         if not self.ini.exists():
             logger.info("Seafile .ini file not found, running `seaf-cli init`")
             #self.ini.parent.parent.mkdir(parents=True, exist_ok=True)
-            subprocess.run(self.binary + ["init", "-d", str(self.seafile)])
+            subprocess.check_call(self.binary + ["init", "-d", str(self.seafile)])
             while not self.ini.exists():
                 logging.debug("Waiting for the .ini file to be created...")
                 time.sleep(1)
 
         # Start the Seafile client.
         logger.info("Starting `seaf-cli`.")
-        subprocess.run(self.binary + ["start"])
+        try:
+            subprocess.check_call(self.binary + ["start"])
+        except Exception as e:
+            raise e
         while not self.socket.exists():
             logger.debug("Waiting for the Seafile client socket to be created.")
             time.sleep(1)
@@ -150,11 +153,11 @@ class Client:
     def configure(self):
         command = self.binary + ["config"] 
         if self.skip_ssl_cert:
-            subprocess.run(command +["-k", "disable_verify_certificate", "-v", self.skip_ssl_cert])
+            subprocess.check_call(command +["-k", "disable_verify_certificate", "-v", self.skip_ssl_cert])
         if self.download_limit:
-            subprocess.run(command +["-k", "download_limit", "-v", self.download_limit])
+            subprocess.check_call(command +["-k", "download_limit", "-v", self.download_limit])
         if self.upload_limit:
-            subprocess.run(command +["-k", "upload_limit", "-v", self.upload_limit])
+            subprocess.check_call(command +["-k", "upload_limit", "-v", self.upload_limit])
 
     def synchronize(self):
         core = self.binary + ["sync", "-u", self.username, "-p", self.password, "-s", self.url]
@@ -178,18 +181,18 @@ class Client:
             command += ["-d", str(target)]
 
             if self.mfa_secret:
-                totp = subprocess.run(
+                totp = subprocess.check_call(
                     f"oathtool --base32 --totp {self.mfa_secret}",
                     text=True,
                     capture_stdout=True).stdout
                 command += ["-a", totp]
 
             logging.debug(f"Running {' '.join(command)}")
-            subprocess.run(command)  
+            subprocess.check_call(command)  
 
     def follow(self):
         logging.debug(f"Running `tail -v -f {self.log}`")
-        subprocess.run(["tail", "-v", "-f", self.log])
+        subprocess.check_call(["tail", "-v", "-f", self.log])
 
     def healthcheck(self):
 
