@@ -18,14 +18,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [tag]: url_to_tag
 -->
 
-## [3.0.1]
+## [3.1.0] - 2024/06/02
+### Changed
+- Disable pipelines on approved merge requests
+### Fixed
+- Instanciate the RPC client at the initialization (#63)
+
+[3.1.0]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/3.1.0
+<!-- /3.1.0 -->
+
+## [3.0.1] - 2024/05/27
 ### Added
 * New script to schedule the best possible time to run the build. It relies on WattTime Load Shift feature (#56)
 * Weekly build through pipeline schedules. (#56)
 ### Changed
 * Every links pointing to the previous repository flwgns-docker/seafile-client are pointing now to florian.anceau/docker-seafile-client. (#56)
 
-[3.0.1]:  https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/3.0.1
+[3.0.1]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/3.0.1
 <!-- /3.0.1 -->
 
 ## [3.0.0] - 2024/03/16
