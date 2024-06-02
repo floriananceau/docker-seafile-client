@@ -18,6 +18,12 @@ include:
   - template: Jobs/Code-Quality.gitlab-ci.yml
   - template: Jobs/SAST.latest.gitlab-ci.yml
 
+test:
+  stage: build
+  script: export
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+
 build:
   stage: build
   before_script:
