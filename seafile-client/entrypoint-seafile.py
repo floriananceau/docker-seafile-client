@@ -145,6 +145,8 @@ class Client:
             logger.debug("Waiting for the Seafile client socket to be created.")
             time.sleep(1)
 
+        self.rpc = seafile.RpcClient(str(self.socket))
+
     def configure(self):
         command = self.binary + ["config"] 
         if self.skip_ssl_cert:
