@@ -1,47 +1,35 @@
+name: seafile-client-${TARGET}
+
 services:
   mariadb:
     image: mariadb:10.11
-    environment:
-      - MYSQL_ROOT_PASSWORD=password  # Requested, set the root's password of MySQL service.
-      - MYSQL_LOG_CONSOLE=true
-      - MARIADB_AUTO_UPGRADE=1
+    env_file: env
     volumes:
       - database:/var/lib/mysql  # Requested, specifies the path to MySQL data persistent store.
 
   memcached:
     image: memcached:1.6.18
-    container_name: seafile-memcached
     entrypoint: memcached -m 256
           
   seafile:
     image: seafileltd/seafile-mc:latest
+    hostname: seafile-${TARGET}
     ports:
-      - "80:80"
+      - "80"
     volumes:
       - seafile:/shared   # Requested, specifies the path to Seafile data persistent store.
-    environment:
-      - DB_HOST=mariadb
-      - DB_ROOT_PASSWD=password  # Requested, the value should be root's password of MySQL service.
-      - TIME_ZONE=Etc/UTC  # Optional, default is UTC. Should be uncomment and set to your local time zone.
-      - SEAFILE_ADMIN_EMAIL=seafile@localhost # Specifies Seafile admin user, default is 'me@example.com'.
-      - SEAFILE_ADMIN_PASSWORD=password     # Specifies Seafile admin password, default is 'asecret'.
-      - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not.
+    env_file: env
     depends_on:
       - mariadb
       - memcached
 
   client:
-    image: seafile-client:unstable
-    volumes:
-      #- library:/library
-      - data:/seafile
-#    user: "1000:1000"
-    environment:
-      SEAF_SERVER_URL: "http://seafile"
-      SEAF_USERNAME: "seafile@localhost"
-      SEAF_PASSWORD: "password"
-      SEAF_LIBRARY_UUID: "1b7d4e92-6753-4c4a-85b0-42566eab42c8"
-      DEBUG: 1
+    # image: flowgunso/seafile-client:9.0.5
+    image: seafile-client:${TARGET}
+    # volumes:
+    #   - library:/library
+    #   - data:/seafile
+    env_file: env
       UID: 1000
       GID: 100
     depends_on:

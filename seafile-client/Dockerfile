@@ -15,7 +15,10 @@ RUN apt-get update && \
             oathtool \
             ca-certificates \
             gnupg \
-            sudo && \
+            sudo \
+            # procps \
+            iputils-ping \
+            && \
     apt-get clean && apt-get autoclean && \
     rm -rf \
         /var/log/fsck/*.log \

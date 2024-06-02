@@ -1,0 +1,19 @@
+# Database
+MYSQL_ROOT_PASSWORD=password  # Requested, set the root's password of MySQL service.
+MYSQL_LOG_CONSOLE=true
+MARIADB_AUTO_UPGRADE=1
+
+# Seafile
+DB_HOST=mariadb
+DB_ROOT_PASSWD=password  # Requested, the value should be root's password of MySQL service.
+TIME_ZONE=Etc/UTC  # Optional, default is UTC. Should be uncomment and set to your local time zone.
+SEAFILE_ADMIN_EMAIL=seafile@localhost # Specifies Seafile admin user, default is 'me@example.com'.
+SEAFILE_ADMIN_PASSWORD=password     # Specifies Seafile admin password, default is 'asecret'.
+SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not.
+
+# Client
+SEAF_SERVER_URL="http://seafile-${TARGET}"
+SEAF_USERNAME="seafile@localhost"
+SEAF_PASSWORD="password"
+DEBUG=1
+# SEAF_LIBRARY_UUID=""  # Use this for custom library ID
