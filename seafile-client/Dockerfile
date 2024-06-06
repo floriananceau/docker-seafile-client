@@ -21,7 +21,8 @@ RUN apt-get update && \
         /var/log/fsck/*.log \
         /var/log/apt/*.log \
         /var/cache/debconf/*.dat-old \
-        /var/lib/apt/lists/*
+        /var/lib/apt/lists/* && \
+    groupmod -g 90 users
 
 COPY --chmod=755 entrypoint-docker.sh /entrypoint.sh
 COPY issue /etc/issue
