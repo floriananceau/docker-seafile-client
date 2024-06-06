@@ -16,7 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 [tag]: url_to_tag
+<!-- --/>
 -->
+
+## [3.2.0] - 2024/06/06
+### Changed
+- Changed the group _users_ GID from 100 to 90. This allow to use the GID 100. (#64)
+
+[3.2.0]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/3.2.0
+<!-- /3.2.0 -->
 
 ## [3.1.0] - 2024/06/02
 ### Changed
