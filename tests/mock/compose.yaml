@@ -30,8 +30,6 @@ services:
     #   - library:/library
     #   - data:/seafile
     env_file: env
-      UID: 1000
-      GID: 100
     depends_on:
       - seafile
 

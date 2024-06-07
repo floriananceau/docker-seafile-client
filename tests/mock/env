@@ -16,4 +16,6 @@ SEAF_SERVER_URL="http://seafile-${TARGET}"
 SEAF_USERNAME="seafile@localhost"
 SEAF_PASSWORD="password"
 DEBUG=1
+UID=1000
+GID=100
 # SEAF_LIBRARY_UUID=""  # Use this for custom library ID
