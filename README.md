@@ -15,7 +15,7 @@ _Docker Seafile client_ is a Docker image that provides a Seafile client to sync
 ## Quick links
 
 * Check out the [roadmap](https://gitlab.com/florian.anceau-oss/docker-seafile-client/-/wikis/home#roadmap) to see what is anticipated.
-* Check out how to [contribute](CONTRIBUTING.md)
+* Check out how to [contribute](CONTRIBUTING.md).
 * Report issues on [Gitlab](https://gitlab.com/florian.anceau-oss/docker-seafile-client/).
 * Ask questions on [Seafile forum](https://forum.seafile.com/t/docker-client-to-sync-files-with-containers/8573).
 
