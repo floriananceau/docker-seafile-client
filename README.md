@@ -1,14 +1,23 @@
-**Share a Seafile library as a volume to other containers.**
-
 > ⚠️ Please consider sponsoring this project to help me maintaining and improving it. As of right now, you can support me through Liberay, available in the project badges
 
-# Features
+# Quick informations
+
+_Docker Seafile client_ is a Docker image that provides a Seafile client to sync one or more library as volumes to other containers.
+
+## Features
 * Synchronize one or more Seafile libraries.
 * Support password protected librairies.
 * Support two factor authentication.
 * Configure upload and download limits.
 * Skip SSL certificates.
 * Set file ownership with user/group ID
+
+## Quick links
+
+* Check out the [roadmap](https://gitlab.com/florian.anceau-oss/docker-seafile-client/-/wikis/home#roadmap) to see what is anticipated.
+* Contribute and report issues on [Gitlab](https://gitlab.com/florian.anceau-oss/docker-seafile-client/).
+* Ask questions on [Seafile forum](https://forum.seafile.com/t/docker-client-to-sync-files-with-containers/8573).
+
 
 # Usage
 
@@ -145,7 +154,3 @@ volumes:
   documents:
   client:
 ```
-
-# Troubleshooting
-* Ask questions on [Seafile forum](https://forum.seafile.com/t/docker-client-to-sync-files-with-containers/8573).
-* Contribute and report issues on [Gitlab](https://gitlab.com/florian.anceau/docker-seafile-client/).
