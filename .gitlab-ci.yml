@@ -145,3 +145,7 @@ weekly-build-scheduler:
 code_quality:
   rules:
     - if: $CI_MERGE_REQUEST_APPROVED
+
+semgrep-sast:
+  rules:
+    - if: $CI_MERGE_REQUEST_APPROVED

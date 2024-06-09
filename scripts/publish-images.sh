@@ -41,7 +41,7 @@ echo $version >> "versions/$TARGET"
 
 # Generate version tags.
 tags=()
-#[[ "$TARGET" =~ "unstable" ]] && tags+=("latest")
+[[ "$TARGET" =~ "unstable" ]] && tags+=("latest")
 for version_component in $(echo $version | tr '.' '\n'); do
     tag+="$version_component"
     tags+=("$tag")
