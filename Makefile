@@ -40,6 +40,7 @@ publish-images:
 
 publish-documents:
 	bash scripts/publish-documents.sh
+	python scripts/update-build-badge.py
 
 save:
 	mkdir -p tarballs/

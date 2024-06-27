@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- --/>
 -->
 
+## [3.2.3] - 2024/06/27
+### Changed
+- Update the build badge date on builds. (#61)
+
+[3.2.3]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/3.2.3
+<!-- /3.2.3 -->
+
 ## [3.2.2] - 2024/06/09
 ### Fixed
 - Allow the latest tag to be applied to the v9 versions. (#54)
