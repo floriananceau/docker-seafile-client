@@ -106,7 +106,7 @@ make-documents:
 publish-documents:
   stage: release
   before_script:
-    - apk add bash git curl jq make
+    - apk add bash git curl jq make py3-gitlab
   script:
     - make publish-documents
   needs:
