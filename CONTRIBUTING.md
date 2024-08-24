@@ -13,13 +13,13 @@
 They are several ways to help and improve this project.
 
 ## Report issues, propose features
-You think you found a bug ? You think something is missing out ? Check that it has not been [already reported](https://gitlab.com/florian.anceau/docker-seafile-client/-/issues). If it has not, [report it](https://gitlab.com/florian.anceau/docker-seafile-client/-/issues/new?issue).
+You think you found a bug ? You think something is missing out ? Check that it has not been [already reported](https://gitlab.com/flrnnc-oss/docker-seafile-client/-/issues). If it has not, [report it](https://gitlab.com/flrnnc-oss/docker-seafile-client/-/issues/new?issue).
 
 ## Solve problems
-You can't wait for a problem to be solved ? Pick one from the [already reported problems](https://gitlab.com/florian.anceau/docker-seafile-client/-/issues) and solve it. It will be greatly appreciated!
+You can't wait for a problem to be solved ? Pick one from the [already reported problems](https://gitlab.com/flrnnc-oss/docker-seafile-client/-/issues) and solve it. It will be greatly appreciated!
 
 ## Say thanks
-One great way to help is simply to say thanks. You can do that by [adding a star to the Docker Hub repository](https://hub.docker.com/r/flowgunso/seafile-client) or [just saying thanks in the project topic on Seafile's forum](https://forum.seafile.com/t/docker-client-to-sync-files-with-containers/8573).
+One great way to help is simply to say thanks. You can do that by [adding a star to the Docker Hub repository](https://hub.docker.com/r/flrnnc/seafile-client) or [just saying thanks in the project topic on Seafile's forum](https://forum.seafile.com/t/docker-client-to-sync-files-with-containers/8573).
 
 # Project workflow
 The ins and outs of the project, from setting up a local environment for developments to notifying users of changes.

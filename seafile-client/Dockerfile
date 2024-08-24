@@ -42,10 +42,10 @@ ARG CREATED
 ARG REVISION
 ARG VERSION
 LABEL org.opencontainers.image.created=${CREATED}
-LABEL org.opencontainers.image.authors="flow.gunso@gmail.com"
+LABEL org.opencontainers.image.authors="florian.anceau@gmail.com"
 LABEL org.opencontainers.image.url="https://hub.docker.com/r/flrnnc/seafile-client"
-LABEL org.opencontainers.image.documentation="https://gitlab.com/florian.anceau-oss/docker-seafile-client"
-LABEL org.opencontainers.image.source="https://gitlab.com/florian.anceau-oss/docker-seafile-client"
+LABEL org.opencontainers.image.documentation="https://gitlab.com/flrnnc-oss/docker-seafile-client"
+LABEL org.opencontainers.image.source="https://gitlab.com/flrnnc-oss/docker-seafile-client"
 LABEL org.opencontainers.image.version=${VERSION}
 LABEL org.opencontainers.image.revision=${REVISION}
 LABEL org.opencontainers.image.licenses="GPL-3.0"

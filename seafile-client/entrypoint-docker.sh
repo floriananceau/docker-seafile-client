@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Docker Seafile client, help you mount a Seafile library as a volume.
-# Copyright (C) 2019-2024, flow.gunso@gmail.com
+# Copyright (C) 2019-2024, florian.anceau@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ if [ "$IMAGE" == "flowgunso" ]; then
     echo -e "┃  \e[1mPlease use \e[4mflrnnc/seafile-client\e[24m instead of \e[4mflowgunso/seafile-client\e[24m which will be deprecated...\e[0m ┃"
     echo -e "┃  See the information notices at:                                                                       ┃"
     echo -e "┃  \thttps://forum.seafile.com/t/docker-client-to-sync-files-with-containers/8573                         ┃"
-    echo -e "┃  \thttps://gitlab.com/florian.anceau-oss/docker-seafile-client                                          ┃"
+    echo -e "┃  \thttps://gitlab.com/flrnnc-oss/docker-seafile-client                                          ┃"
     echo -e "┃  \thttps://hub.docker.com/r/flowgunso/seafile-client                                                    ┃"
     echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
     echo

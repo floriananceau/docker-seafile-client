@@ -5,4 +5,4 @@ docker run \
     -e SEAF_LIBRARY="an-hexadecimal-library-uuid" \
     -v path/to/library:/library \
     -v path/to/client/data:/seafile \
-    flowgunso/seafile-client:latest
+    flrnnc/seafile-client:latest
