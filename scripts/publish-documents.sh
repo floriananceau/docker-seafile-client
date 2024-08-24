@@ -10,10 +10,14 @@ json=$(jq -n \
     --arg readme "$(<documentations/docker.md)" \
     '{"full_description": $readme,"description":"Synchronize one or more Seafile library. Support password protected librairies and 2FA authentication."}')
 
+jsonOld=$(jq -n \
+    --arg readme "$(<documentations/docker-olm.md)" \
+    '{"full_description": $readme,"description":"Synchronize one or more Seafile library. Support password protected librairies and 2FA authentication."}')
+
 # Update the Docker Hub repository's full_description.
 curl -siL \
     -X PATCH \
-    -d "$json" \
+    -d "$jsonOld" \
     -H "Content-Type: application/json" \
     -H "Authorization: JWT $token" \
     "https://hub.docker.com/v2/repositories/$DOCKER_REGISTRY_IMAGE_FLOWGUNSO/"
