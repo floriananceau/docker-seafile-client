@@ -25,7 +25,7 @@ raise() {
 }
 
 # Grab version with the container
-version="$(docker run --rm seafile-client:$TARGET cat -s /SEAFILE_VERSION)"
+version="$(docker run --rm seafile-client:$TARGET-flrnnc cat -s /SEAFILE_VERSION)"
 version="$(echo ${version%-*})"
 
 # Output the version to an artifact for documentation rendering.
@@ -44,7 +44,7 @@ done
 # Tag then push to the Docker Hub registry.
 echo $DOCKER_REGISTRY_TOKEN | docker login --password-stdin --username $DOCKER_REGISTRY_USERNAME
 for tag in "${tags[@]}"; do
-    docker tag seafile-client:$TARGET $DOCKER_REGISTRY_IMAGE_FLOWGUNSO:$tag
+    docker tag seafile-client:$TARGET-flowgunso $DOCKER_REGISTRY_IMAGE_FLOWGUNSO:$tag
     docker push $DOCKER_REGISTRY_IMAGE_FLOWGUNSO:$tag
 done
 
