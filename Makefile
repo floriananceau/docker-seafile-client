@@ -33,7 +33,7 @@ test:
 # CI/CD
 documents:
 	python scripts/make-documents.py docker.md.j2
-	python scripts/make-documents.py docker-old.j2
+	python scripts/make-documents.py docker-old.md.j2
 	python scripts/make-documents.py seafile.md.j2
 
 publish-images:
