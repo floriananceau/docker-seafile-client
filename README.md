@@ -1,5 +1,7 @@
 > ⚠️ Please consider sponsoring this project to help me maintaining and improving it. As of right now, you can support me through Liberay, available in the project badges
 
+> This project is switching namespaces. The sources previously in [flwgnso-docker/docker-seafile-client](https://gitlab.com/flwgns-docker/seafile-client) are now in [florian.anceau-oss/docker-seafile-client](https://gitlab.com/florian.anceau-oss/docker-seafile-client). The Docker image can still be found at [flowgunso/seafile-client](https://hub.docker.com/r/flowgunso/seafile-client) but it will be deprecated, the image [flrnnc/seafile-client](https://hub.docker.com/r/flrnnc/seafile-client) should be used instead.
+
 # Quick informations
 
 _Docker Seafile client_ is a Docker image that provides a Seafile client to sync one or more library as volumes to other containers.

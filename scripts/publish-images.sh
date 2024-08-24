@@ -49,8 +49,13 @@ for version_component in $(echo $version | tr '.' '\n'); do
 done
 
 # Tag then push to the Docker Hub registry.
-echo $DOCKER_HUB_BOT_TOKEN | docker login --password-stdin --username $DOCKER_HUB_BOT_USERNAME
+echo $DOCKER_REGISTRY_TOKEN | docker login --password-stdin --username $DOCKER_REGISTRY_USERNAME
 for tag in "${tags[@]}"; do
-    docker tag seafile-client:$TARGET $DOCKER_HUB_IMAGE:$tag
-    docker push $DOCKER_HUB_IMAGE:$tag
+    docker tag seafile-client:$TARGET $DOCKER_REGISTRY_IMAGE_FLOWGUNSO:$tag
+    docker push $DOCKER_REGISTRY_IMAGE_FLOWGUNSO:$tag
+done
+
+for tag in "${tags[@]}"; do
+    docker tag seafile-client:$TARGET-flrnnc $DOCKER_REGISTRY_IMAGE_FLRNNC:$tag
+    docker push $DOCKER_REGISTRY_IMAGE_FLRNNC:$tag
 done

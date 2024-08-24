@@ -11,8 +11,14 @@ Example usage with docker-compose and for the docker cli are provided. Essential
 Feedback is welcome so I can keep improving it.
 
 # Quick informations
-**[flowgunso/seafile-client](https://hub.docker.com/r/flowgunso/seafile-client)** on Docker Hub, latest stable version: **{{version}}**
-Contribute and report issues on [Gitlab](https://gitlab.com/florian.anceau/docker-seafile-client/).
+{% include "parts/badges.md.j2" %}
+
+[u]Please use [flrnnc/seafile-client](https://hub.docker.com/r/flrnnc/seafile-client) from now on instead of [flowgunso/seafile-client](https://hub.docker.com/r/flowgunso/seafile-client)[/u].
+
+The client is being moved to new namespaces which are sponsored as open source software. Both the source code and the image has been moved to those namespaces.
+
+[flowgunso/seafile-client](https://hub.docker.com/r/flowgunso/seafile-client) will still be updated until usage is low enough.
+
 
 {% include "parts/supported_tags.md.j2" %}
 
@@ -21,8 +27,3 @@ Contribute and report issues on [Gitlab](https://gitlab.com/florian.anceau/docke
 {% include "parts/usage.md.j2" %}
 
 {% include "parts/troubleshooting.md.j2" %}
-
-# Changelog
-[details]
-{{changelog}}
-[/details]

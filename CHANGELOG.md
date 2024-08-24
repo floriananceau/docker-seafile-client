@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 <!-- To log a new version, copy, uncomment, add your changes, then add the tag shortcut at the end of the file
-## [Unreleased]
+<!-- tag --!>
+## [tag]
 ### Added
 ### Changed
 ### Deprecated
@@ -16,8 +17,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 [tag]: url_to_tag
-<!-- --/>
+<!-- /tag --!>
 -->
+
+<!-- 3.2.4 -->
+## [3.2.4]
+### Added
+* Publish to the new flrnnc/seafile-client repository.
+* Documentation template for old flowgunso/seafile-client images.
+### Changed
+* Use new CI/CD variables.
+
+[3.2.4]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/3.2.4
+<!-- /3.2.4 -->
+
 
 ## [3.2.3] - 2024/06/27
 ### Changed

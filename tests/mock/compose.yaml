@@ -31,7 +31,7 @@ services:
       - memcached
 
   client:
-    image: seafile-client:unstable
+    image: seafile-client:oldstable-flowgunso
     volumes:
       #- library:/library
       - data:/seafile
@@ -40,7 +40,7 @@ services:
       SEAF_SERVER_URL: "http://seafile"
       SEAF_USERNAME: "seafile@localhost"
       SEAF_PASSWORD: "password"
-      SEAF_LIBRARY_UUID: "1b7d4e92-6753-4c4a-85b0-42566eab42c8"
+      SEAF_LIBRARY: "1b7d4e92-6753-4c4a-85b0-42566eab42c8"
       DEBUG: 1
       UID: 1000
       GID: 100

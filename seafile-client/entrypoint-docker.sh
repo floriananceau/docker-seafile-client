@@ -23,6 +23,19 @@ set -e
 groupmod -g $GID seafile &> /dev/null
 usermod -u $UID -g $GID seafile &> /dev/null
 
+
+if [ "$IMAGE" == "flowgunso" ]; then
+    echo
+    echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
+    echo -e "┃  \e[1mPlease use \e[4mflrnnc/seafile-client\e[24m instead of \e[4mflowgunso/seafile-client\e[24m which will be deprecated...\e[0m ┃"
+    echo -e "┃  See the information notices at:                                                                       ┃"
+    echo -e "┃  \thttps://forum.seafile.com/t/docker-client-to-sync-files-with-containers/8573                         ┃"
+    echo -e "┃  \thttps://gitlab.com/florian.anceau-oss/docker-seafile-client                                          ┃"
+    echo -e "┃  \thttps://hub.docker.com/r/flowgunso/seafile-client                                                    ┃"
+    echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+    echo
+fi
+
 sudo \
     -HE \
     -u seafile \
