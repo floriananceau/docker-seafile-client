@@ -30,5 +30,12 @@ done
 
 docker build \
     $build_arguments \
-    --tag seafile-client:$TARGET \
+    --build-arg IMAGE=flowgunso \
+    --tag seafile-client:$TARGET-flowgunso \
+    seafile-client/
+
+docker build \
+    $build_arguments \
+    --build-arg IMAGE=flrnnc \
+    --tag seafile-client:$TARGET-flrnnc \
     seafile-client/

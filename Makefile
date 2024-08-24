@@ -1,5 +1,6 @@
 TARGET?=unstable
 
+# Mocking
 mock:
 	docker compose -f tests/mock/compose.yaml up -d
 
@@ -16,6 +17,10 @@ shell:
 logs:
 	docker compose -f tests/mock/compose.yaml logs -f client
 
+ps:
+	docker compose -f tests/mock/compose.yaml ps
+
+# Build
 build:
 	TARGET=${TARGET} CI_COMMIT_TAG=${CI_COMMIT_TAG} bash scripts/build-images.sh
 
@@ -25,17 +30,18 @@ build-test:
 test:
 	docker run seafile-client:test
 
+# CI/CD
 documents:
 	python scripts/make-documents.py docker.md.j2
+	python scripts/make-documents.py docker-old.j2
 	python scripts/make-documents.py seafile.md.j2
 
 publish-images:
 	TARGET=${TARGET} \
-	DOCKER_HUB_BOT_USERNAME=${DOCKER_HUB_BOT_USERNAME} \
-	DOCKER_HUB_BOT_TOKEN=${DOCKER_HUB_BOT_TOKEN} \
-	DOCKER_HUB_OWNER_USERNAME=${DOCKER_HUB_OWNER_USERNAME} \
-	DOCKER_HUB_OWNER_TOKEN=${DOCKER_HUB_OWNER_TOKEN} \
-	DOCKER_HUB_IMAGE=${DOCKER_HUB_IMAGE} \
+	DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME} \
+	DOCKER_REGISTRY_TOKEN=${DOCKER_REGISTRY_TOKEN} \
+	DOCKER_REGISTRY_IMAGE_FLOWGUNSO=${DOCKER_REGISTRY_IMAGE_FLOWGUNSO} \
+	DOCKER_REGISTRY_IMAGE_FLRNNC=${DOCKER_REGISTRY_IMAGE_FLRNCC} \
 		bash scripts/publish-images.sh
 
 publish-documents:
@@ -44,10 +50,12 @@ publish-documents:
 
 save:
 	mkdir -p tarballs/
-	docker save --output tarballs/${TARGET}.tar seafile-client:${TARGET}
+	docker save --output tarballs/${TARGET}-flowgunso.tar seafile-client:${TARGET}-flowgunso
+	docker save --output tarballs/${TARGET}-flrnnc.tar seafile-client:${TARGET}-flrnnc
 
 load:
-	docker load --input tarballs/${TARGET}.tar
+	docker load --input tarballs/${TARGET}-flowgunso.tar
+	docker load --input tarballs/${TARGET}-flrnnc.tar
 
 schedule-weekly-build:
 	python scripts/schedule-build.py
