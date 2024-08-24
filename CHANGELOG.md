@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-<!-- To log a new version, copy, uncomment, add your changes, then add the tag shortcut at the end of the file
-<!-- tag --!>
+<!-- To log a new version, copy, uncomment, add your changes, then add the tag shortcut at the end of the file -->
+<!-- tag --/>
 ## [tag]
 ### Added
 ### Changed
@@ -17,16 +17,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 [tag]: url_to_tag
-<!-- /tag --!>
--->
+<!-- /tag --/>
 
 <!-- 3.2.4 -->
 ## [3.2.4]
 ### Added
 * Publish to the new flrnnc/seafile-client repository.
-* Documentation template for old flowgunso/seafile-client images.
+* Write notices regarding the Docker repository move.
 ### Changed
 * Use new CI/CD variables.
+* Do not run pipelines on Draft MR. (#69)
+### Removed
+* Remove the changelog from the Seafile documentation.
 
 [3.2.4]: https://gitlab.com/florian.anceau/docker-seafile-client/-/tags/3.2.4
 <!-- /3.2.4 -->
