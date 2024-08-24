@@ -16,11 +16,11 @@ curl -siL \
     -d "$json" \
     -H "Content-Type: application/json" \
     -H "Authorization: JWT $token" \
-    "https://hub.docker.com/v2/repositories/$DOCKER_HUB_IMAGE_FLOWGUNSO/"
+    "https://hub.docker.com/v2/repositories/$DOCKER_REGISTRY_IMAGE_FLOWGUNSO/"
 
 curl -siL \
     -X PATCH \
     -d "$json" \
     -H "Content-Type: application/json" \
     -H "Authorization: JWT $token" \
-    "https://hub.docker.com/v2/repositories/$DOCKER_HUB_IMAGE_FLRNNC/"
+    "https://hub.docker.com/v2/repositories/$DOCKER_REGISTRY_IMAGE_FLRNNC/"

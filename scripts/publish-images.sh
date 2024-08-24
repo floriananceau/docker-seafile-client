@@ -24,13 +24,6 @@ raise() {
     exit 1
 }
 
-# Validate the required parameters.
-# [[ -z "$DOCKER_HUB_BOT_USERNAME" ]] && raise "Missing DOCKER_HUB_BOT_USERNAME envvar."
-# [[ -z "$DOCKER_HUB_BOT_TOKEN" ]] && raise "Missing DOCKER_HUB_BOT_TOKEN envvar."
-# [[ -z "$DOCKER_HUB_OWNER_USERNAME" ]] && raise "Missing DOCKER_HUB_OWNER_USERNAME envvar."
-# [[ -z "$DOCKER_HUB_OWNER_TOKEN" ]] && raise "Missing DOCKER_HUB_OWNER_TOKEN envvar."
-# [[ -z "$DOCKER_HUB_IMAGE" ]] && raise "Missing DOCKER_HUB_IMAGE envvar"
-
 # Grab version with the container
 version="$(docker run --rm seafile-client:$TARGET cat -s /SEAFILE_VERSION)"
 version="$(echo ${version%-*})"
