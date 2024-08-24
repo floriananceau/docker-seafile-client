@@ -63,6 +63,7 @@ publish-images:
   before_script:
     - apk add bash git curl jq make
   script:
+    - export
     - make load
     - make publish-images
   needs:
@@ -81,6 +82,8 @@ publish-images:
     paths:
       - tarballs/
       - versions/*
+  variables:
+    CI_DEBUG_TRACE: "true"
 
 make-documents:
   stage: release
