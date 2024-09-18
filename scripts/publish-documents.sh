@@ -8,11 +8,11 @@ token=$(curl -s \
 # Generate a JSON with the README.md as the full_description.
 json=$(jq -n \
     --arg readme "$(<documentations/docker.md)" \
-    '{"full_description": "'"$readme"'","description": "'"$DOCKER_REGISTRY_DESCRIPTION_FLRNNC"'"}')
+    '{"full_description": $readme,"description": "'"$DOCKER_REGISTRY_DESCRIPTION_FLRNNC"'"}')
 
 jsonOld=$(jq -n \
     --arg readme "$(<documentations/docker-old.md)" \
-    '{"full_description": "'"$readme"'","description": "'"$DOCKER_REGISTRY_DESCRIPTION_FLOWGUNSO"'"}')
+    '{"full_description": $readme,"description": "'"$DOCKER_REGISTRY_DESCRIPTION_FLOWGUNSO"'"}')
 
 # Update the Docker Hub repository's full_description.
 curl -siL \
