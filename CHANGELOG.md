@@ -19,6 +19,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [tag]: https://gitlab.com/flrnnc-oss/docker-seafile-client/-/releases/tag
 <!-- /tag --/>
 
+<!-- 3.3.0 -->
+## [3.3.0]
+### Modified
+* Add TARGET environment variable to Makefile commands.
+### Fixed
+* Fix the TypeError for the skip SSL certificates parameters.
+
+[3.3.0]: https://gitlab.com/flrnnc-oss/docker-seafile-client/-/releases/3.3.0
+<!-- /3.3.0 -->
+
 <!-- 3.2.5 -->
 ## [3.2.5]
 ### Modified

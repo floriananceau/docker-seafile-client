@@ -150,7 +150,7 @@ class Client:
     def configure(self):
         command = self.binary + ["config"] 
         if self.skip_ssl_cert:
-            subprocess.run(command +["-k", "disable_verify_certificate", "-v", self.skip_ssl_cert])
+            subprocess.run(command +["-k", "disable_verify_certificate", "-v", str(self.skip_ssl_cert)])
         if self.download_limit:
             subprocess.run(command +["-k", "download_limit", "-v", self.download_limit])
         if self.upload_limit:
