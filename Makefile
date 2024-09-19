@@ -1,24 +1,24 @@
-TARGET?=unstable
+TARGET?=stable
 
 # Mocking
 mock:
-	docker compose -f tests/mock/compose.yaml up -d
+	TARGET=${TARGET} docker compose -f tests/mock/compose.yaml up -d
 
 unmock:
-	docker compose -f tests/mock/compose.yaml down
+	TARGET=${TARGET} docker compose -f tests/mock/compose.yaml down
 
 client:
-	docker compose -f tests/mock/compose.yaml rm -fs client
-	docker compose -f tests/mock/compose.yaml up -d client
+	TARGET=${TARGET} docker compose -f tests/mock/compose.yaml rm -fs client
+	TARGET=${TARGET} docker compose -f tests/mock/compose.yaml up -d client
 
 shell:
-	docker compose -f tests/mock/compose.yaml exec client bash
+	TARGET=${TARGET} docker compose -f tests/mock/compose.yaml exec client bash
 
 logs:
-	docker compose -f tests/mock/compose.yaml logs -f client
+	TARGET=${TARGET} docker compose -f tests/mock/compose.yaml logs -f client
 
 ps:
-	docker compose -f tests/mock/compose.yaml ps
+	TARGET=${TARGET} docker compose -f tests/mock/compose.yaml ps
 
 # Build
 build:
