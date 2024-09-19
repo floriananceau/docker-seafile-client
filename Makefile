@@ -32,6 +32,7 @@ test:
 
 # CI/CD
 documents:
+	python scripts/update-build-badge.py
 	python scripts/make-documents.py docker.md.j2
 	python scripts/make-documents.py docker-old.md.j2
 	python scripts/make-documents.py seafile.md.j2
@@ -46,7 +47,6 @@ publish-images:
 
 publish-documents:
 	bash scripts/publish-documents.sh
-	python scripts/update-build-badge.py
 
 save:
 	mkdir -p tarballs/
