@@ -7,8 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 <!-- To log a new version, copy, uncomment, add your changes, then add the tag shortcut at the end of the file -->
-<!-- tag --/>
-## [tag]
+<!-- Unreleased --/>
+## [Unreleased] - year-month-date
 ### Added
 ### Changed
 ### Deprecated
@@ -16,8 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Security
 
-[tag]: https://gitlab.com/flrnnc-oss/docker-seafile-client/-/releases/tag
-<!-- /tag --/>
+[Unreleased]: https://gitlab.com/flrnnc-oss/docker-seafile-client/-/releases/Unreleased
+<!-- /Unreleased /-->
+
 
 <!-- 3.3.0 -->
 ## [3.3.0]
