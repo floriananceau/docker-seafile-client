@@ -110,7 +110,7 @@ class Client:
             if variable.startswith("SEAF_LIBRARY"):
 
                 # Get the variable name.
-                name = variable.split("_")[2]
+                name = variable.split("_")[2].lower()
 
                 # Read the password as a secret.
                 if "_PASSWORD" in variable:

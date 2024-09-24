@@ -1,3 +1,5 @@
+name: mock-docker-seafile-client
+
 services:
   mariadb:
     image: mariadb:10.11
@@ -31,7 +33,7 @@ services:
       - memcached
 
   client:
-    image: seafile-client:oldstable-flowgunso
+    image: seafile-client:${TARGET}-flowgunso
     volumes:
       #- library:/library
       - data:/seafile
