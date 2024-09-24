@@ -7,8 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 <!-- To log a new version, copy, uncomment, add your changes, then add the tag shortcut at the end of the file -->
-<!-- tag --/>
-## [tag]
+<!-- Unreleased --/>
+## [Unreleased] - year-month-date
 ### Added
 ### Changed
 ### Deprecated
@@ -16,11 +16,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Security
 
-[tag]: https://gitlab.com/flrnnc-oss/docker-seafile-client/-/releases/tag
-<!-- /tag --/>
+[Unreleased]: https://gitlab.com/flrnnc-oss/docker-seafile-client/-/releases/Unreleased
+<!-- /Unreleased /-->
+
+<!-- 3.4.0 -->
+## [3.4.0] - 2024-09-24
+### Added
+- Explicit project name to mock Docker Compose.
+### Fixed
+- Librairies name are formatted to lower case (#75).
+- Use for $TARGET in mock Docker Compose.
+- Fix pipeline jobs rules, specifically on Draft MR.
+
+[3.4.0]: https://gitlab.com/flrnnc-oss/docker-seafile-client/-/releases/3.4.0
+<!-- /3.4.0 -->
+
 
 <!-- 3.3.0 -->
-## [3.3.0]
+## [3..0]
 ### Modified
 * Add TARGET environment variable to Makefile commands.
 ### Fixed
