@@ -19,9 +19,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [Unreleased]: https://gitlab.com/flrnnc-oss/docker-seafile-client/-/releases/Unreleased
 <!-- /Unreleased /-->
 
+<!-- 3.4.0 -->
+## [3.4.0] - 2024-09-24
+### Added
+- Explicit project name to mock Docker Compose.
+### Changed
+### Deprecated
+### Removed
+### Fixed
+- Librairies name are formatted to lower case (#75).
+- Use for $TARGET in mock Docker Compose.
+### Security
+
+[3.4.0]: https://gitlab.com/flrnnc-oss/docker-seafile-client/-/releases/3.4.0
+<!-- /3.4.0 -->
+
 
 <!-- 3.3.0 -->
-## [3.3.0]
+## [3..0]
 ### Modified
 * Add TARGET environment variable to Makefile commands.
 ### Fixed
