@@ -1,3 +1,5 @@
+name: mock-docker-seafile-client
+
 services:
   mariadb:
     image: mariadb:10.11
