@@ -31,7 +31,7 @@ services:
       - memcached
 
   client:
-    image: seafile-client:oldstable-flowgunso
+    image: seafile-client:${TARGET}-flowgunso
     volumes:
       #- library:/library
       - data:/seafile
